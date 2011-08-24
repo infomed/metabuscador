@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/buscador/!svn/ver/34/trunk/src/webservice_soap
+END
+wsdl_creation.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/buscador/!svn/ver/53/trunk/src/webservice_soap/wsdl_creation.php
+END
+client.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/buscador/!svn/ver/51/trunk/src/webservice_soap/client.php
+END
+nusoap.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/buscador/!svn/ver/34/trunk/src/webservice_soap/nusoap.php
+END
+server.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/buscador/!svn/ver/53/trunk/src/webservice_soap/server.php
+END

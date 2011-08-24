@@ -1,0 +1,50 @@
+<?xml version ='1.0' encoding ='UTF-8' ?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:SearchService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:SearchService">
+<types>
+<xsd:schema targetNamespace="urn:SearchService"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+</xsd:schema>
+</types>
+<message name="searchRequest">
+  <part name="query" type="xsd:string" />
+  <part name="infoS_id" type="xsd:int" />
+  <part name="count_elem" type="xsd:int" />
+  <part name="init_elem" type="xsd:int" /></message>
+<message name="searchResponse">
+  <part name="return" type="xsd:array" /></message>
+<message name="listInfoSourcesRequest"></message>
+<message name="listInfoSourcesResponse">
+  <part name="return" type="xsd:array" /></message>
+<portType name="SearchServicePortType">
+  <operation name="search">
+    <documentation>Search information in an information source</documentation>
+    <input message="tns:searchRequest"/>
+    <output message="tns:searchResponse"/>
+  </operation>
+  <operation name="listInfoSources">
+    <documentation>List all the information source</documentation>
+    <input message="tns:listInfoSourcesRequest"/>
+    <output message="tns:listInfoSourcesResponse"/>
+  </operation>
+</portType>
+<binding name="SearchServiceBinding" type="tns:SearchServicePortType">
+  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="search">
+    <soap:operation soapAction="urn:Search_Service#search" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:Search_Service" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:Search_Service" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="listInfoSources">
+    <soap:operation soapAction="urn:Search_Service#listInfoSources" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:Search_Service" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:Search_Service" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+</binding>
+<service name="SearchService">
+  <port name="SearchServicePort" binding="tns:SearchServiceBinding">
+    <soap:address location="http://localhost/buscador(Repo)/webservice_soap/server.php"/>
+  </port>
+</service>
+</definitions>

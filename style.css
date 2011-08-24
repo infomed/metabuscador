@@ -1,0 +1,320 @@
+/* CSS del buscador de Infomed*/
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	margin: 0 auto;
+	padding: 0px;
+	position: relative;
+	}
+
+form{
+	/*border:#D7D7D7 1px solid;*/
+	background-color:#F4F4F4;
+	font-size: 11px;
+	margin: 50px auto;
+	_margin: 35px 0%;/*para IE6*/
+	position: relative;
+	/*overflow-y:auto;*/
+	width: 100%;
+	}
+form#engines_form, form#adaptors_form, form#sources_form{
+	background-color:#F4F4F4;
+	border:#D7D7D7 1px solid;
+	font-size: 11px;
+	/*height: 80%;*/
+	margin: 75px auto;
+	_margin: 85px 10%;/*para IE6*/
+	position: relative;
+	width: 90%;
+	}
+form#post{
+	background-color:#F4F4F4;
+	border:#D7D7D7 1px solid;
+	font-size: 11px;
+	/*height: 80%;*/
+	margin: 0px auto;
+	_margin: 5% 10%;/*para IE6*/
+	position: relative;
+}
+fieldset{
+	border: none;
+	padding-bottom: 10px 
+}
+
+h5  {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#57a519;
+	position:relative;
+	top:10px;
+	padding-left: 10px;
+		}
+input { 
+	/*background-image:url(buscar.gif);
+	background-repeat:no-repeat;*/
+	background-color: #57a519;
+	color: #FFF;
+	margin-bottom: 3px;
+	}
+input.small {
+	background-color: #FFF;
+	color:#333; 
+	margin:0px;
+	padding:0px;
+	background-image:none;
+	width:180px;
+}
+#listado input.radio {
+	background-color: transparent;
+}
+#adaptors_form input#submit_button,
+#engines_form input#submit_button,  
+#sources_form input#submit_button {
+	background-image: url(/img/addsearch.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	background-color: transparent;
+	border: none;
+	color: #16387C;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	/*padding-left: 75px;*/
+	padding-left: 19px;
+}
+#post input#save, input#browser{
+	background-color: #6AB13C!important;
+	color: #FFF!important;
+}
+.add{
+	background-image: url(/img/addsearch.png);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	border: none;
+	color: #16387C;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	padding-left: 19px;
+	margin-left: 40px;
+	text-decoration: none;
+}
+.list{
+	color: #57a519;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	padding-left: 45px;
+	
+}
+/* --- Engine ------*/
+#contenedor{
+	width: 70%;/* cuando se llame desde otro lugar debe ser auto*/
+	border:#D7D7D7 1px solid;
+	margin: 20px auto;
+	_margin: 10px 10%;/*para IE6*/
+	position: relative;
+	padding:2%;
+}
+	
+#contenedor table{
+	color:#333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+div#admin{
+clear: left;
+padding-left: 15px;
+width: 30px;
+height: 10px;
+}
+div#admin a{
+color:#57a519;
+font-size: 14px;
+font-weight: bold;
+text-decoration: none;
+}
+#engines_form input {
+	background-color: #fff;
+	color:#333; 
+	margin:0px;
+	margin-right: 5px;
+	padding:0px;
+	background-image:none;
+}
+#adaptors_form input {
+	background-color: transparent!important;
+	color:#333; 
+	margin:0px;
+	margin-right: 5px;
+	padding:0px;
+	background-image:none;
+}
+#sources_form input{
+	background-color: transparent!important;
+	color:#333; 
+	margin:0px;
+	margin-right: 5px;
+	padding:0px;
+	background-image:none;
+}
+
+/*---------- post -----------*/
+#post input{
+	background-color: #FFF;
+	color:#333; 
+	margin:0px;
+	margin-right: 5px;
+	padding:0px;
+	background-image:none;
+}
+/*----------------*/
+#parameters input {
+	background-color:#FFF;
+	color:#333;
+	}
+select{
+	width:30%;
+	margin-bottom:3px;
+
+}
+ #wrap{
+	background-color:#FFF;
+	width:100%;
+	position:relative;
+ } 
+
+ #logo {
+	background-color:#FFF;
+	background-image:url(/img/cab.gif);
+	background-position:0 center;
+	background-repeat:no-repeat;
+	float:left;
+	height:45px/*35*/;
+	/*position:absolute;*/
+	width:350px;
+ } 
+ /*-- uso para todos los listados, se coloco en el tpl---*/
+ #listado {
+	border-collapse:collapse;
+	border-spacing:0;
+	margin:10px auto;/*puede eliminarse para colocarlo a la izq*/
+  } 
+ #listado ul{  
+	} 
+ #listado li {
+ 	list-style: none;	
+  } 
+ #listado li a{
+ 	color:#16387c;
+ 	list-style: none;	
+ 	font-family: Arial, Helvetica, sans-serif;
+ 	font-size: 12px;
+ 	text-decoration: none;
+ } 
+
+#operador{
+	background-color:#f4f4f4;
+	margin:0 auto;
+	position:relative;
+	padding-bottom:10px;
+	text-align:center;
+	/*top:55px25px*/;
+	width:85%/*620px*/;
+	}
+#operadores {
+	background-color:#f4f4f4;
+	margin:0 5px;
+	position:relative;
+	padding:0 10px 0 10px;
+	/*top:55px/*25px*/;*/
+	width:80%/*610px*/;	
+	}
+/*general*/	
+#despegable {
+	/*height:30px25*/;
+	width:100%;
+}
+#result{
+	border:#D7D7D7 1px solid;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: small;
+	margin:5px auto;
+	padding-left: 10px;
+	width: 90%;
+	}
+#result a{
+	color:#57a519;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+}
+ /* search ingenies manager */
+  #buscadorE{
+	background-color:#FFF;
+	width:75%;
+	position:relative;
+	margin:20px auto;
+	_margin: 20px 10%;/*para IE6*/
+padding:2%;
+	border: 1px solid #efefef;
+	height: auto;
+ } 
+
+ #wrapE{
+ 	background-color:#FFF;
+	width:640px;
+	position:relative;
+	margin:20px auto;
+	height:150px/*130px*/;
+	_height:170px;
+ }/*-----fin*/
+#buscador, #buscadorAV{
+	background-color:#FFF;
+	border:1px solid #D7D7D7;
+	width:70%;
+	position:relative;
+	margin:20px auto;
+	_margin:20x 0px;/*para IE6*/
+	padding:0 5%;
+ } 
+#buscador{
+	height:150px/*130px*/;
+	_height:170px;/*para IE6*/
+ } 
+/* search avanced*/
+ 
+ #parametros{
+	background-color:#f4f4f4;
+	margin:0 5px;
+	position:relative;
+	padding:0 10px 0 10px;
+	/*top:55px/*25px*/;*/
+	text-align: left!important;
+}
+#parametros #parameters legend {
+	text-align: left!important;
+	color: #808080;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight: normal 
+}
+#advance{
+		
+		font-family:Arial,Helvetica,sans-serif;
+		font-size:12px;
+		font-weight:bold;
+		height:45px;
+		padding-top:25px;
+		/*right:0;*/
+		width:30%;
+		float: right;
+		position: relative;
+		}
+#advance a{
+      background-image:url(/img/busqavanzada.png);
+		background-position:left center;
+		background-repeat:no-repeat;
+	color:#16387c;
+padding-left:25px;
+	text-decoration: none;
+}

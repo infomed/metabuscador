@@ -1,0 +1,82 @@
+<?php
+
+ini_set('display_errors', '0');
+ini_set('soap.wsdl_cache_enabled', '0'); // disabling WSDL cache
+
+require_once '../config.php';
+require '../libs/XMLParamParser.php';
+require '../libs/search_engines.lib.php';
+require '../libs/infoSource_engines.lib.php';
+require '../libs/search_interface.php';    //pasar para lib
+require '../libs/utiles.lib.php';
+
+// Define the method as a PHP function
+ function search($query,$infoS_id,$count_elem,$init_elem)
+ {
+    global $mdb;
+    //acciones relacionadas con la fuente de información
+ 	$infoS_manager = new InfoSourceEngineManager($mdb);
+ 	$infoS = $infoS_manager->get($infoS_id); //obteniendo objeto fuente de informacion
+
+    $xmlParser= new XMLParamParser();
+ 	//obteniendo arreglo con los parametros de la fuente de informacion y sus valores
+ 	$array_params = $xmlParser->readXMLParamValor($infoS->getSearchEngineParams());
+    //acciones relacionadas con el buscador
+ 	$searchE_id = $infoS->getSearchEngineId(); //obteniendo id del buscador
+    $searchE_manager = new SearchEngineManager($mdb);
+ 	$searchE = $searchE_manager->get($searchE_id);//obteniendo el objeto buscador
+ 	$class_name = $searchE->getClassName(); //obteniendo nombre de la clase del buscador
+
+ 	$implementation = $searchE->getImplementation(); //
+ 	require_once "../modulos/buscadores/".$implementation;
+
+ 	//instanciación de la clase e invocación del método search
+ 	$search_object = new $class_name();
+
+ 	$result = $search_object->search($query,$count_elem,$init_elem,$array_params);
+ 	return $result;
+ }
+ function listInfoSources()
+ {
+   global $mdb;
+   $infoS_manager = new InfoSourceEngineManager($mdb);
+
+   return $infoS_manager->getAll(); //obteniendo todas las FI registradas en la BD
+   //getAll devuelve un arreglo de objetos InfoSourceEngine
+ }
+
+function listSearchEngines()
+ {
+   global $mdb;
+   $searchE_manager = new SearchEngineManager($mdb);
+
+   return $searchE_manager->getAll();
+ }
+ function advancedSearch($query, $searchE_id, $count_elem, $init_elem, $parameters)
+ {
+    global $mdb;
+
+    //obteniendo arreglo de parametros y sus valores (a partir del StdClass de entrada)
+    $param = Utiles::parseStdClassParam($parameters);
+
+    //acciones relacionadas con el buscador
+ 	$searchE_manager = new SearchEngineManager($mdb);
+ 	$searchE = $searchE_manager->get($searchE_id);//obteniendo el objeto buscador
+ 	$class_name = $searchE->getClassName(); //obteniendo nombre de la clase del buscador
+ 	$implementation = $searchE->getImplementation();
+ 	require_once "../modulos/buscadores/".$implementation;
+
+    //instanciación de la clase e invocación del método search
+ 	$search_object = new $class_name();
+ 	$result = $search_object->search($query,$count_elem,$init_elem,$param);
+    return $result;
+ }
+
+$server = new SoapServer($wsdl_path/*'http://localhost/Buscador/index.php?wsdl'*/);
+$server->addFunction('search');
+$server->addFunction('listInfoSources');
+$server->addFunction('listSearchEngines');
+$server->addFunction('advancedSearch');
+$server->handle();
+
+?>
